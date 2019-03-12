@@ -52,13 +52,15 @@ class UserHandler: UserHandlerProtocol {
             HandlerSettings.shared.request = cache.requestMessage
             HandlerSettings.shared.httpHelper?.setCookies(cache.cookies)
             
-            try getCurrentUser { (result) in
-                if result.isSucceeded {
-                    completion(Return.success(value: .success))
-                } else {
-                    completion(Return.fail(error: result.info.error, response: ResponseTypes.fail, value: nil))
-                }
-            }
+            completion(Return.success(value: .success))
+            
+//            try getCurrentUser { (result) in
+//                if result.isSucceeded {
+//                    completion(Return.success(value: .success))
+//                } else {
+//                    completion(Return.fail(error: result.info.error, response: ResponseTypes.fail, value: nil))
+//                }
+//            }
         } else {
             throw CustomErrors.runTimeError("bad cache info.")
         }
