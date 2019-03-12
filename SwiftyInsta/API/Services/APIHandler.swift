@@ -19,6 +19,8 @@ public protocol APIHandlerProtocol:
 }
 
 public class APIHandler: APIHandlerProtocol {
+
+    
     
     public init() {
         
@@ -135,6 +137,28 @@ public class APIHandler: APIHandlerProtocol {
         try UserHandler.shared.getUser(id: id) { (result) in
             completion(result)
         }
+    }
+    
+    public func getUserFollowers(pk: Int, paginationParameter: PaginationParameters, searchQuery: String, completion: @escaping (Result<[UserShortModel]>) -> ()) throws {
+        // validate before request.
+        try validateUser()
+        try validateLoggedIn()
+        
+        try UserHandler.shared.getUserFollowers(pk: pk, paginationParameter: paginationParameter, searchQuery: searchQuery) { (result) in
+            completion(result)
+        }
+    }
+    
+    public func getUserFollowing(pk: Int, paginationParameter: PaginationParameters, searchQuery: String, completion: @escaping (Result<[UserShortModel]>) -> ()) throws {
+        // validate before request.
+        try validateUser()
+        try validateLoggedIn()
+        
+        try UserHandler.shared.getUserFollowing(pk: pk, paginationParameter: paginationParameter, searchQuery: searchQuery) { (result) in
+            completion(result)
+        }
+        
+        
     }
     
     public func getUserFollowing(username: String, paginationParameter: PaginationParameters, searchQuery: String = "", completion: @escaping (Result<[UserShortModel]>) -> ()) throws {

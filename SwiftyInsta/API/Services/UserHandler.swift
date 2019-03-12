@@ -23,6 +23,8 @@ public protocol UserHandlerProtocol {
     func getUserTags(userId: Int, paginationParameter: PaginationParameters, completion: @escaping (Result<[UserFeedModel]>) -> ()) throws
     func getUserFollowers(username: String, paginationParameter: PaginationParameters, searchQuery: String, completion: @escaping (Result<[UserShortModel]>) -> ()) throws
     func getUserFollowing(username: String, paginationParameter: PaginationParameters, searchQuery: String, completion: @escaping (Result<[UserShortModel]>) -> ()) throws
+    func getUserFollowers(pk: Int, paginationParameter: PaginationParameters, searchQuery: String, completion: @escaping (Result<[UserShortModel]>) -> ()) throws
+    func getUserFollowing(pk: Int, paginationParameter: PaginationParameters, searchQuery: String, completion: @escaping (Result<[UserShortModel]>) -> ()) throws
     func getCurrentUser(completion: @escaping (Result<CurrentUserModel>) -> ()) throws
     func getRecentActivities(paginationParameter: PaginationParameters, completion: @escaping (Result<[RecentActivitiesModel]>) -> ()) throws
     func getRecentFollowingActivities(paginationParameter: PaginationParameters, completion: @escaping (Result<[RecentFollowingsActivitiesModel]>) -> ()) throws
@@ -36,6 +38,8 @@ public protocol UserHandlerProtocol {
 }
 
 class UserHandler: UserHandlerProtocol {
+
+    
     
     static let shared = UserHandler()
 
@@ -555,6 +559,31 @@ class UserHandler: UserHandlerProtocol {
             }
         }
     }
+    
+    
+    
+    func getUserFollowers(pk: Int, paginationParameter: PaginationParameters, searchQuery: String, completion: @escaping (Result<[UserShortModel]>) -> ()) throws {
+        let url = try! URLs.getUserFollowers(userPk: pk, rankToken: HandlerSettings.shared.user!.rankToken, searchQuery: searchQuery, maxId: paginationParameter.nextId)
+        
+        self.getFollowersList(pk: pk, searchQuery: searchQuery, followers: [], url: url, paginationParameter: paginationParameter, completion: { (result) in
+            completion(Return.success(value: result))
+        })
+    }
+    
+    func getUserFollowing(pk: Int, paginationParameter: PaginationParameters, searchQuery: String, completion: @escaping (Result<[UserShortModel]>) -> ()) throws {
+        let url = try! URLs.getUserFollowing(userPk: pk, rankToken: HandlerSettings.shared.user!.rankToken, searchQuery: searchQuery, maxId: paginationParameter.nextId)
+        var following: [UserShortModel] = []
+        self.getFollowingList(from: url, completion: { (result) in
+            if result.isSucceeded && result.value?.users != nil {
+                following.append(contentsOf: result.value!.users!)
+                completion(Return.success(value: following))
+            } else {
+                completion(Return.fail(error: result.info.error, response: .ok, value: nil))
+            }
+        })
+    }
+    
+    
     
     func getUserFollowing(username: String, paginationParameter: PaginationParameters, searchQuery: String = "", completion: @escaping (Result<[UserShortModel]>) -> ()) throws {
         
