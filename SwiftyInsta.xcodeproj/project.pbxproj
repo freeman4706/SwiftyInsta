@@ -86,6 +86,8 @@
 		11E148D82209F3300068C8AF /* HttpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E148D72209F3300068C8AF /* HttpSettings.swift */; };
 		11E2B135218F13D20095374A /* UserShortListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E2B134218F13D20095374A /* UserShortListModel.swift */; };
 		11F0CE6B2195CC2400C0F6A4 /* TimeLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F0CE6A2195CC2400C0F6A4 /* TimeLineModel.swift */; };
+		469CA8352248498900B94FA6 /* FriendshipStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469CA8342248498800B94FA6 /* FriendshipStatus.swift */; };
+		469E3B5F224617DA00901661 /* FriendshipStatusesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E3B5E224617DA00901661 /* FriendshipStatusesModel.swift */; };
 		E8314D5E2210652400D13BEA /* UserTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8314D5D2210652400D13BEA /* UserTags.swift */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +184,8 @@
 		11E148D72209F3300068C8AF /* HttpSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpSettings.swift; sourceTree = "<group>"; };
 		11E2B134218F13D20095374A /* UserShortListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserShortListModel.swift; sourceTree = "<group>"; };
 		11F0CE6A2195CC2400C0F6A4 /* TimeLineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineModel.swift; sourceTree = "<group>"; };
+		469CA8342248498800B94FA6 /* FriendshipStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendshipStatus.swift; sourceTree = "<group>"; };
+		469E3B5E224617DA00901661 /* FriendshipStatusesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendshipStatusesModel.swift; sourceTree = "<group>"; };
 		E8314D5D2210652400D13BEA /* UserTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTags.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +306,7 @@
 		115F1239217FE83B00ED3530 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				469CA8342248498800B94FA6 /* FriendshipStatus.swift */,
 				1104CD0C218062DD00F855BA /* AndroidDeviceModel.swift */,
 				11F0CE6A2195CC2400C0F6A4 /* TimeLineModel.swift */,
 				112022972188AACF00CA58BA /* BaseStatusResponseModel.swift */,
@@ -313,6 +318,7 @@
 				11B9567121944F70006661A6 /* ExploreFeedModel.swift */,
 				11B9567B219454B9006661A6 /* ExploreItemInfoModel.swift */,
 				11848603218A1F460067FFD6 /* FriendshipStatusModel.swift */,
+				469E3B5E224617DA00901661 /* FriendshipStatusesModel.swift */,
 				11B9568321945C67006661A6 /* LocationModel.swift */,
 				114B847F21871D1300F84161 /* LoginBaseResponseModel.swift */,
 				11723A582187C23400968DA5 /* LoginResponseModel.swift */,
@@ -570,6 +576,7 @@
 				11C439D4219A429B00467381 /* ProfilePrivacyResponseModel.swift in Sources */,
 				1177ACA721F34BE1008A0C4C /* MediaLikersModel.swift in Sources */,
 				115F1255217FF0E300ED3530 /* UserShortModel.swift in Sources */,
+				469CA8352248498900B94FA6 /* FriendshipStatus.swift in Sources */,
 				1164FB532217FBB100A05EB1 /* CustomUserAgent.swift in Sources */,
 				11DDE51F21A1F94B00754F0F /* AndroidVersion.swift in Sources */,
 				1195D5A721B1E6E900C71FE7 /* VerifyTypes.swift in Sources */,
@@ -586,6 +593,7 @@
 				1104CD112180644100F855BA /* HttpHelper.swift in Sources */,
 				115F1241217FE98000ED3530 /* APIHandler.swift in Sources */,
 				11B9567E21945500006661A6 /* TrayModel.swift in Sources */,
+				469E3B5F224617DA00901661 /* FriendshipStatusesModel.swift in Sources */,
 				1171E472218118A400579B04 /* DelayModel.swift in Sources */,
 				11B956782194542D006661A6 /* StoryModel.swift in Sources */,
 				11B9568821945FD4006661A6 /* CaptionModel.swift in Sources */,

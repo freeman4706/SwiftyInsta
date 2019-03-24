@@ -19,6 +19,8 @@ public protocol APIHandlerProtocol:
 }
 
 public class APIHandler: APIHandlerProtocol {
+    
+    
 
     
     
@@ -409,6 +411,16 @@ public class APIHandler: APIHandlerProtocol {
         try UserHandler.shared.getFriendshipStatus(of: userId) { (result) in
             completion(result)
         }
+    }
+    
+    public func getFriendshipStatuses(of userIds: [Int], completion: @escaping (Result<FriendshipStatusesModel>) -> ()) throws {
+        try validateUser()
+        try validateLoggedIn()
+        
+        try UserHandler.shared.getFriendshipStatuses(of: userIds) { (result) in
+            completion(result)
+        }
+        
     }
     
     public func block(userId: Int, completion: @escaping (Result<FollowResponseModel>) -> ()) throws {
