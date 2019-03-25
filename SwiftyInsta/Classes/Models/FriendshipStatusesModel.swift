@@ -9,8 +9,8 @@
 import UIKit
 
 public struct FriendshipStatusesModel: Codable {
-    let friendshipStatuses: [String: FriendshipStatus]
-    let status: String
+    public let friendshipStatuses: [String: FriendshipStatus]
+    public let status: String
     
     enum CodingKeys: String, CodingKey {
         case friendshipStatuses = "friendship_statuses"

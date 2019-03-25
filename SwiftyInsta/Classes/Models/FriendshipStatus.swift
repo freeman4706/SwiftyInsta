@@ -9,8 +9,8 @@
 import UIKit
 
 public struct FriendshipStatus: Codable {
-    let following, isPrivate, incomingRequest, outgoingRequest: Bool
-    let isBestie: Bool
+    public let following, isPrivate, incomingRequest, outgoingRequest: Bool
+    public let isBestie: Bool
     
     enum CodingKeys: String, CodingKey {
         case following
