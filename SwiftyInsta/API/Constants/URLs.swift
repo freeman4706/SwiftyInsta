@@ -365,7 +365,7 @@ struct URLs {
     }
     
     static func getFriendshipStatusesUrl() throws -> URL {
-        if let url = URL(string: String(format: "%@", baseInstagramApiUrl, friendshipStatuses)) {
+        if let url = URL(string: String(format: "%@%@", baseInstagramApiUrl, friendshipStatuses)) {
             return url
         }
         throw CustomErrors.urlCreationFaild("Cant create URL for current user.")
