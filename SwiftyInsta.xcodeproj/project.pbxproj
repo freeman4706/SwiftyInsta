@@ -86,6 +86,9 @@
 		11E148D82209F3300068C8AF /* HttpSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E148D72209F3300068C8AF /* HttpSettings.swift */; };
 		11E2B135218F13D20095374A /* UserShortListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E2B134218F13D20095374A /* UserShortListModel.swift */; };
 		11F0CE6B2195CC2400C0F6A4 /* TimeLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F0CE6A2195CC2400C0F6A4 /* TimeLineModel.swift */; };
+		4613F9042264658200013F3B /* WKCookieWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613F9032264658200013F3B /* WKCookieWebView.swift */; };
+		4613F906226465BF00013F3B /* WKCookieWebViewPreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613F905226465BF00013F3B /* WKCookieWebViewPreloader.swift */; };
+		4613F9082264663800013F3B /* InstagramLoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4613F9072264663800013F3B /* InstagramLoginWebView.swift */; };
 		469CA8352248498900B94FA6 /* FriendshipStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469CA8342248498800B94FA6 /* FriendshipStatus.swift */; };
 		469E3B5F224617DA00901661 /* FriendshipStatusesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E3B5E224617DA00901661 /* FriendshipStatusesModel.swift */; };
 		E8314D5E2210652400D13BEA /* UserTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8314D5D2210652400D13BEA /* UserTags.swift */; };
@@ -184,6 +187,9 @@
 		11E148D72209F3300068C8AF /* HttpSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpSettings.swift; sourceTree = "<group>"; };
 		11E2B134218F13D20095374A /* UserShortListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserShortListModel.swift; sourceTree = "<group>"; };
 		11F0CE6A2195CC2400C0F6A4 /* TimeLineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineModel.swift; sourceTree = "<group>"; };
+		4613F9032264658200013F3B /* WKCookieWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCookieWebView.swift; sourceTree = "<group>"; };
+		4613F905226465BF00013F3B /* WKCookieWebViewPreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKCookieWebViewPreloader.swift; sourceTree = "<group>"; };
+		4613F9072264663800013F3B /* InstagramLoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramLoginWebView.swift; sourceTree = "<group>"; };
 		469CA8342248498800B94FA6 /* FriendshipStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendshipStatus.swift; sourceTree = "<group>"; };
 		469E3B5E224617DA00901661 /* FriendshipStatusesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendshipStatusesModel.swift; sourceTree = "<group>"; };
 		E8314D5D2210652400D13BEA /* UserTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTags.swift; sourceTree = "<group>"; };
@@ -229,6 +235,7 @@
 		115F1209217FDD8B00ED3530 /* SwiftyInsta */ = {
 			isa = PBXGroup;
 			children = (
+				4613F9012264649200013F3B /* Web */,
 				115F1237217FE7F400ED3530 /* API */,
 				115F1248217FEB8100ED3530 /* Classes */,
 				115F1236217FE7A200ED3530 /* Helpers */,
@@ -387,6 +394,7 @@
 		115F1248217FEB8100ED3530 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4613F9022264657200013F3B /* WKCookieWebView */,
 				115F124D217FEBF900ED3530 /* Devices */,
 				115F1247217FEA9D00ED3530 /* Enums */,
 				115F1239217FE83B00ED3530 /* Models */,
@@ -417,6 +425,23 @@
 				115F124C217FEBF000ED3530 /* iOS */,
 			);
 			path = Devices;
+			sourceTree = "<group>";
+		};
+		4613F9012264649200013F3B /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				4613F9072264663800013F3B /* InstagramLoginWebView.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		4613F9022264657200013F3B /* WKCookieWebView */ = {
+			isa = PBXGroup;
+			children = (
+				4613F9032264658200013F3B /* WKCookieWebView.swift */,
+				4613F905226465BF00013F3B /* WKCookieWebViewPreloader.swift */,
+			);
+			path = WKCookieWebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +579,7 @@
 				110C9D9821989F5800805C68 /* RecentActivitiesModel.swift in Sources */,
 				11AE440721A99CD400BD9EFB /* MessageHandler.swift in Sources */,
 				115F124F217FEC8E00ED3530 /* Result.swift in Sources */,
+				4613F9042264658200013F3B /* WKCookieWebView.swift in Sources */,
 				116B149F21DEB64B00953A71 /* SessionCache.swift in Sources */,
 				11F0CE6B2195CC2400C0F6A4 /* TimeLineModel.swift in Sources */,
 				116C3F3B21A6EBE5003084DD /* MediaTypes.swift in Sources */,
@@ -570,6 +596,7 @@
 				115F1257217FF1BF00ED3530 /* AndroidDeviceGenerator.swift in Sources */,
 				115F1251217FEF6800ED3530 /* ResultInfo.swift in Sources */,
 				11723A592187C23400968DA5 /* LoginResponseModel.swift in Sources */,
+				4613F906226465BF00013F3B /* WKCookieWebViewPreloader.swift in Sources */,
 				1131A45421974F9D00497992 /* TagFeedModel.swift in Sources */,
 				11B9568621945F09006661A6 /* VideoVersionModel.swift in Sources */,
 				112E735C2180E86B0048A8D7 /* CryptoHelper.swift in Sources */,
@@ -607,6 +634,7 @@
 				11B8518F219F5208009527CD /* UploadMediaModel.swift in Sources */,
 				11AE440921A99CD400BD9EFB /* MediaHandler.swift in Sources */,
 				115CA6DD21AFFB2700769B00 /* GenderTypes.swift in Sources */,
+				4613F9082264663800013F3B /* InstagramLoginWebView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
