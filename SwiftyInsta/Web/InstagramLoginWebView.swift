@@ -11,7 +11,8 @@ import WebKit
 
 
 public protocol InstagramLoginWebViewDelegate {
-    func userLoggedSuccessfully(sessionCache : SessionCache)
+    func userLoggedSuccessfully()
+    func webViewFinishedToLoadUser(sessionCache : SessionCache)
 }
 
 
@@ -91,6 +92,9 @@ public class InstagramLoginWebView: WKCookieWebView {
                 
             })
             
+            if self.loginDelegate != nil {
+                self.loginDelegate?.userLoggedSuccessfully()
+            }
 
             try? instagramHandler.getCurrentUser { (currentUserModel) in
                 if currentUserModel.isSucceeded {
@@ -105,7 +109,7 @@ public class InstagramLoginWebView: WKCookieWebView {
                     let sessionCache = SessionCache.init(user: HandlerSettings.shared.user!, device: HandlerSettings.shared.device!, requestMessage: HandlerSettings.shared.request!, cookies: (HTTPCookieStorage.shared.cookies?.getInstagramCookies()?.toCookieData())!, isUserAuthenticated: true)
                     
                     if self.loginDelegate != nil {
-                        self.loginDelegate?.userLoggedSuccessfully(sessionCache: sessionCache)
+                        self.loginDelegate?.webViewFinishedToLoadUser(sessionCache: sessionCache)
                     }
                 }
             }
