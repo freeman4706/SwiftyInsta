@@ -51,15 +51,33 @@ public class InstagramLoginWebView: WKCookieWebView {
     
     public func loadInstagramLogin(isNeedPreloadForCookieSync : Bool) {
         self.deleteAllCookies()
-        self.customUserAgent = "(Linux; Android 5.0; iPhone Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Mobile Safari/537.36"
+        var userAgent = "Mozilla/5.0 (Linux; Android 5.0; iPhone Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Mobile Safari/537.36"
+        
+        if #available(iOS 12.0, *) {
+            print("iOS: 12+")
+            userAgent = "(Linux; Android 5.0; iPhone Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Mobile Safari/537.36"
+        } else if #available(iOS 11.4, *) {
+            print("iOS: 11.4")
+            userAgent = "(Linux; Android 5.0; iPhone Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Mobile Safari/537.36"
+            //self.customUserAgent = "(Linux; Android 4.4.2; SCH-I545 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.111 Mobile Safari/537.36"
+        } else {
+            print("iOS 11.3-")
+            userAgent = "(Linux; Android 4.4.2; SCH-I545 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.111 Mobile Safari/537.36"
+            //self.customUserAgent = "(Linux; U; Android 4.3; de-de; SAMSUNG GT-I9300/I9300XXUGNA5 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
+        }
+        
+        self.customUserAgent = userAgent
         let urlString = "https://www.instagram.com/accounts/login/"
+        
+        let urlRequest = URLRequest(url: URL(string: urlString)!)
+        //urlRequest.addValue(userAgent, forHTTPHeaderField: "User-Agent")
         
         if isNeedPreloadForCookieSync {
             WKCookieWebView.preloadWithDomainForCookieSync(urlString: urlString) { [weak self] in
-                self!.load(URLRequest(url: URL(string: urlString)!))
+                self!.load(urlRequest)
             }
         } else {
-            self.load(URLRequest(url: URL(string: urlString)!))
+            self.load(urlRequest)
         }
     }
     
